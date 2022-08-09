@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react"
+import Button from "../Base/Components/Button"
 
 interface Props {
     title?: string
@@ -43,13 +44,7 @@ const Search = ({ title, placeholder, handleSubmit }: Props) => {
                         text-white
                         w-2/3 rounded-md"
                         onClick={() => handleSubmit(search)}>Search</button>
-                    <button
-                        className="px-4 py-2
-                        bg-red-400 hover:bg-red-500
-                        dark:bg-red-600 dark:hover:bg-red-700
-                        text-white
-                        w-1/3 ml-2 rounded-md"
-                        onClick={handleClear}>Clear</button>
+                    <Button color="red" onClick={handleClear}>Clear</Button>
                 </div>
             </div>
         </div>

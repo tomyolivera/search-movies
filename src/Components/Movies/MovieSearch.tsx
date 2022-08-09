@@ -7,7 +7,7 @@ const MovieSearch = ({ id, primaryImage, releaseDate, releaseYear, titleText, ti
 
     return (
         <div className="
-                flex items-center gap-x-4 mb-3 w-full
+                flex items-center gap-x-4 my-3 w-full
                 bg-white
                 dark:bg-gray-800
             "
@@ -26,17 +26,9 @@ const MovieSearch = ({ id, primaryImage, releaseDate, releaseYear, titleText, ti
                     { titleText.text || "Sin título" }
                 </p>
                 <b className="my-3"><cite>{ releaseDate?.year || "" }</cite></b>
-                {/* <Button color="indigo">
+                <Button color="indigo" darkColor onClick={() => navigate(`/detail/${id}`)}>
                     See more
-                </Button> */}
-                {/* <button className="
-                    px-4 py-2 rounded-md
-                    
-                    bg-blue-400 hover:bg-blue-500
-                    dark:bg-gray-600 dark:hover:bg-blue-700
-                "
-                    onClick={() => navigate(`/detail/${id}`)}
-                >See more</button> */}
+                </Button>
             </div>
         </div>
     )

@@ -15,25 +15,22 @@ const MovieContext = createContext<MovieProps>({
 
 export default MovieContext
 
-const URL_BASE = "https://moviesdatabase.p.rapidapi.com/titles/search"
+const API_URL = "https://moviesdatabase.p.rapidapi.com/titles/search"
+
+const headers = {
+    'X-RapidAPI-Key': "c743f92b29mshfb03a9bff5bafd2p15d521jsnace7ed36542b",
+    'X-RapidAPI-Host': "moviesdatabase.p.rapidapi.com"
+}
 
 export const MovieProvider = ({ children }: { children: ReactNode }) => {
     const getMoviesByTitle = async (title: string) => {
-        const { data } = await axios.get(`${URL_BASE}/title/${title}`,{
-            headers: {
-                'X-RapidAPI-Key': "c743f92b29mshfb03a9bff5bafd2p15d521jsnace7ed36542b",
-                'X-RapidAPI-Host': "moviesdatabase.p.rapidapi.com"
-            }
-        })
+        const { data } = await axios.get(`${API_URL}/title/${title}`, { headers })
 
         return data.results
     }
     const getMovieById = async (id: string) => {
-        const { data } = await axios.get(`${URL_BASE}/titles/x/titles-by-ids`, {
-            headers: {
-                'X-RapidAPI-Key': "c743f92b29mshfb03a9bff5bafd2p15d521jsnace7ed36542b",
-                'X-RapidAPI-Host': "moviesdatabase.p.rapidapi.com"
-            },
+        const { data } = await axios.get(`${API_URL}/titles/x/titles-by-ids`, {
+            headers,
             params: { 'idsList[0]': id }
         })
 
